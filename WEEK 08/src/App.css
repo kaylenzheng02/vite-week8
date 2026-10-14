@@ -3,27 +3,21 @@
 }
 
 .photo-page {
-  width: 100%;
   min-height: 100vh;
   display: grid;
   place-items: center;
 }
 
-.photo-content {
-  display: grid;
-  justify-items: center;
-}
-
 .photo-button {
   display: block;
-  width: min(56.25vh, 90vw);
-  height: 75vh;
+  width: 200px;
+  height: 240px;
+  margin: 1rem auto;
   padding: 0;
   border: 0;
   background: transparent;
   cursor: pointer;
   perspective: 1000px;
-  transform: translateX(-200px);
 }
 
 .photo-flipper {
@@ -36,11 +30,11 @@
 
 .photo-flipper.is-flipped {
   transform: rotateY(180deg);
-  animation: flip-forward 700ms cubic-bezier(0.2, 0.7, 0.3, 1);
+  animation: flip-forward 700ms ease-in-out;
 }
 
 .photo-flipper.is-returning {
-  animation: flip-back 700ms cubic-bezier(0.2, 0.7, 0.3, 1);
+  animation: flip-back 700ms ease-in-out;
 }
 
 @keyframes flip-forward {
@@ -80,21 +74,47 @@
   transform: rotateY(180deg);
 }
 
-.photo-message {
-  min-height: 1.5em;
-  margin: 1rem 0 0;
-  font-size: 1.5rem;
+.profiles-section {
+  width: 90%;
+  max-width: 900px;
+  margin: 2rem 0;
+}
+
+.profiles-heading {
+  margin: 0 0 1rem;
+  text-align: center;
+}
+
+.profiles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.profile-card {
+  padding: 1.5rem;
+  border: 2px solid #000;
+  border-radius: 0;
+  background: #fff;
+  text-align: center;
+}
+
+.profile-card-emoji {
+  display: block;
+  font-size: 2.5rem;
+}
+
+.profile-card-name {
+  margin: 0.5rem 0;
+}
+
+.profile-card-hobby {
+  margin: 0;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .photo-flipper.is-flipped,
   .photo-flipper.is-returning {
     animation: none;
-  }
-}
-
-@media (max-width: 600px) {
-  .photo-button {
-    transform: translateX(-40px);
   }
 }
