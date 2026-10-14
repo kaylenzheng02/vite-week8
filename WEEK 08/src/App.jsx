@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import welcomePhoto from './assets/welcome-photo.jpg'
 import profilePhoto from './assets/alex-profile.png'
+import jordanPhoto from './assets/jordan-profile.jpg'
 import alternatePhoto from '../../IMG_1889.JPG'
 import ProfileCard from './ProfileCard'
 import './App.css'
@@ -66,10 +67,16 @@ function App() {
           </ProfileCard>
 
           <ProfileCard
-            name="Jordan"
-            hobby="Taking photos"
-            emoji="📸"
-          />
+            name="James"
+            hobby="walking across the court like a boss"
+            emoji="😎"
+          >
+            <img
+              className="profile-card-image"
+              src={jordanPhoto}
+              alt="Basketball players on a court"
+            />
+          </ProfileCard>
         </div>
       </section>
     </main>
