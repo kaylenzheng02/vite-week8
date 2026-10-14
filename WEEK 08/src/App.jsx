@@ -4,7 +4,7 @@ import './App.css'
 
 const messages = [
   'ew dont touch me',
-  'meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow',
+  'meow meow meow meow meow',
   'hi my name is kaylen, i go to parsons, this is my profile',
 ]
 
