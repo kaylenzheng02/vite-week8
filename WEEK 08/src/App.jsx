@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import welcomePhoto from './assets/welcome-photo.jpg'
+import alternatePhoto from '../../IMG_1889.JPG'
 import './App.css'
 
 const messages = [
@@ -11,6 +12,7 @@ const messages = [
 function App() {
   const [clickCount, setClickCount] = useState(0)
   const [typedMessage, setTypedMessage] = useState('')
+  const [showAlternatePhoto, setShowAlternatePhoto] = useState(false)
 
   useEffect(() => {
     if (clickCount === 0) return
@@ -32,6 +34,7 @@ function App() {
   function handleImageClick() {
     setTypedMessage('')
     setClickCount((count) => count + 1)
+    setShowAlternatePhoto((showAlternate) => !showAlternate)
   }
 
   return (
@@ -40,14 +43,25 @@ function App() {
         <button
           className="photo-button"
           type="button"
-          aria-label="Show message"
+          aria-label={showAlternatePhoto ? 'Show welcome photo' : 'Show alternate photo'}
           onClick={handleImageClick}
         >
-          <img
-            className="welcome-photo"
-            src={welcomePhoto}
-            alt="Smiling outdoors in front of a mural"
-          />
+          <span
+            className={`photo-flipper${showAlternatePhoto ? ' is-flipped' : clickCount > 0 ? ' is-returning' : ''}`}
+          >
+            <img
+              className="welcome-photo photo-face photo-front"
+              src={welcomePhoto}
+              alt="Smiling outdoors in front of a mural"
+              aria-hidden={showAlternatePhoto}
+            />
+            <img
+              className="welcome-photo photo-face photo-back"
+              src={alternatePhoto}
+              alt="White cat"
+              aria-hidden={!showAlternatePhoto}
+            />
+          </span>
         </button>
         <p className="photo-message" aria-live="polite">
           {typedMessage}
