@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import welcomePhoto from './assets/welcome-photo.jpg'
+import profilePhoto from './assets/alex-profile.png'
 import alternatePhoto from '../../IMG_1889.JPG'
 import ProfileCard from './ProfileCard'
 import './App.css'
@@ -17,7 +18,7 @@ function App() {
     <main className="photo-page">
       <section className="profiles-section" aria-labelledby="profiles-heading">
         <h1 id="profiles-heading" className="profiles-heading">
-          Profile Cards
+          My Jesters
         </h1>
         <div className="profiles-grid">
           <ProfileCard
@@ -53,10 +54,16 @@ function App() {
           </ProfileCard>
 
           <ProfileCard
-            name="Alex"
-            hobby="Listening to music"
-            emoji="🎧"
-          />
+            name="Lebron"
+            hobby="hooping ethically"
+            emoji="🏀"
+          >
+            <img
+              className="profile-card-image"
+              src={profilePhoto}
+              alt="Portrait of Lebron James"
+            />
+          </ProfileCard>
 
           <ProfileCard
             name="Jordan"
